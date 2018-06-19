@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
+import { setHeaders } from './headers';
 const POSTS = 'POSTS'
 const ADD_POST = 'ADD_POST'
 const UPDATE_POST = 'UPDATE_POST'
@@ -12,6 +14,8 @@ export const getPosts = () => {
     axios.get('/api/posts')
       .then( res => {
         dispatch({ type: POSTS, posts: res.data })
+        const { headers } = res;
+        dispatch(setHeaders(headers));
       })
   }
 }
@@ -21,6 +25,8 @@ export const addPost = (post) => {
     axios.post('/api/posts', { post })
       .then( res => {
         dispatch({ type: ADD_POST, post: res.data })
+        const { headers } = res;
+        dispatch(setHeaders(headers));
       })
   }
 }
@@ -30,6 +36,8 @@ export const updatePost = (post) => {
     axios.put(`/api/posts/${post.id}`, { post })
       .then( res => {
         dispatch({ type: UPDATE_POST, post: res.data })
+        const { headers } = res;
+        dispatch(setHeaders(headers));
       })
   }
 }
@@ -37,7 +45,11 @@ export const updatePost = (post) => {
 export const deletePost = (id) => {
   return (dispatch) => {
     axios.delete(`/api/posts/${id}`)
-      .then( res => dispatch({ type: DELETE_POST, id }) )
+      .then( res => {
+        dispatch({ type: DELETE_POST, id }) 
+        const { headers } = res;
+        dispatch(setHeaders(headers));
+      })
   }
 }
 
