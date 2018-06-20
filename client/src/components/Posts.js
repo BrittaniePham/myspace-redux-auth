@@ -2,32 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux'; //connects store and dispatch to props??
 import { Link } from 'react-router-dom';
 import { getPosts } from '../reducers/posts';
-import { Container, Header, Card, } from 'semantic-ui-react';
+import { Container, Header, Card, Button} from 'semantic-ui-react';
 import PostForm from './PostForm';
+import Post from './Post';
 
 class Posts extends React.Component {
-
-  posts = () => {
-    return this.props.posts.map( post => 
-      <Card key={post.id}>
-        <Card.Content>
-          <Card.Meta>
-            <span>
-              {post.author}
-            </span>
-          </Card.Meta>
-          <Card.Description>
-            {post.body}
-          </Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-          <Link to={`/posts/${post.id}`}>
-            View post
-          </Link>
-        </Card.Content>
-      </Card>
-    )
-  }
 
   render() {
     return (
@@ -35,7 +14,8 @@ class Posts extends React.Component {
       <PostForm/>
         <Header as="h3" textAlign="center">Posts</Header>
         <Card.Group itemsPerRow={1}>
-          { this.posts() }
+          {this.props.posts.map(post =>
+          <Post {...post}/>)}
         </Card.Group>
       </Container>
     )
@@ -43,7 +23,7 @@ class Posts extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { posts: state.posts }
+  return { posts: state.posts, user: state.user } //FRANKLIN
 }
 
 export default connect(mapStateToProps)(Posts)

@@ -28,7 +28,7 @@ class PostForm extends React.Component {
     const func = this.props.id ? updatePost : addPost
     dispatch(func(post))
     this.setState({...this.initialState})
-    history.push("/posts")
+    history.push("/posts") //redirect after edit/post
   }
 
   render() {

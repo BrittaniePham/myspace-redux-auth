@@ -3,7 +3,7 @@ class Api::PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
 
   def index
-    render json: Post.order('created_at desc')
+    render json: Post.order('updated_at desc')
   end
 
   def show
