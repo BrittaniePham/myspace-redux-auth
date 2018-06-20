@@ -24,11 +24,11 @@ class PostForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const post = {...this.state}
-    const { dispatch, history } = this.props
+    const { toggleForm, dispatch, history } = this.props
     const func = this.props.id ? updatePost : addPost
     dispatch(func(post))
     this.setState({...this.initialState})
-    history.push("/posts") //redirect after edit/post
+    toggleForm()
   }
 
   render() {
@@ -42,7 +42,7 @@ class PostForm extends React.Component {
           label="post"
           required
         />
-        <Form.Button>Post</Form.Button>
+        <Form.Button>Save</Form.Button>
       </Form>
     )
   }

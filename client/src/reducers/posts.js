@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
 import { setHeaders } from './headers';
 const POSTS = 'POSTS'
 const ADD_POST = 'ADD_POST'
