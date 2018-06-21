@@ -15,13 +15,14 @@ class Posts extends React.Component {
     const { showForm } = this.state
     return (
       <Container>
-      <PostForm/>
-        <Header as="h3" textAlign="center">Posts</Header>
-          <Card.Group itemsPerRow={1}>
-            {this.props.posts.map(post =>
-            <Post key={post.id} {...post}/>)}
-          </Card.Group>
-        }
+        <Header as="h1" textAlign="center">Myspace</Header>
+        <PostForm/>
+          <Header as="h3" textAlign="center">Posts</Header>
+            <Card.Group itemsPerRow={1}>
+              {this.props.posts.map(post =>
+              <Post key={post.id} {...post}/>)}
+            </Card.Group>
+          }
       </Container>
     )
   }

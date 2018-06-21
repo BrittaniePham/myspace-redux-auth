@@ -10,11 +10,16 @@ import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
 import FetchPosts from './FetchPosts';
+import styled from 'styled-components';
+
+const AppContainer = styled.div`
+ background: linear-gradient(to bottom right, #fff0f8, #d7ecff);
+`
 
 class App extends Component {
   render() {
     return (
-      <div>
+      <AppContainer>
         <NavBar />
         <Flash />
         <FetchUser>
@@ -26,7 +31,7 @@ class App extends Component {
             <Route component={NoMatch} />
           </Switch>
         </FetchUser>
-      </div>
+      </AppContainer>
     );
   }
 }
