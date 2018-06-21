@@ -2,13 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updatePost, addPost } from '../reducers/posts';
 import { Form } from 'semantic-ui-react';
-import { withRouter } from 'react-router-dom';
 
 class PostForm extends React.Component {
   initialState = {
     body: ''
   }
-
   state = {...this.initialState}
 
   componentDidMount() {
@@ -24,11 +22,16 @@ class PostForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const post = {...this.state}
-    const { toggleForm, dispatch, history } = this.props
-    const func = this.props.id ? updatePost : addPost
-    dispatch(func(post))
-    this.setState({...this.initialState})
-    toggleForm()
+    const { toggleForm, dispatch } = this.props
+    // const func = this.props.id ? updatePost : addPost
+    if (this.props.id){
+      dispatch(updatePost(post))
+      this.setState({...this.initialState})
+      toggleForm()
+    } else {
+      dispatch(addPost(post))
+      this.setState({...this.initialState})
+    } 
   }
 
   render() {
@@ -48,4 +51,4 @@ class PostForm extends React.Component {
   }
 }
 
-export default withRouter(connect()(PostForm))
+export default connect()(PostForm)

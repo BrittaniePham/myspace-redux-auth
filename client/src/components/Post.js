@@ -5,7 +5,7 @@ import {
   Button,
 } from 'semantic-ui-react'
 import PostForm from './PostForm'
-import { updatePost, deletePost } from '../reducers/posts'
+import { deletePost } from '../reducers/posts'
 
 class Post extends React.Component {
   state = { showForm: false }
@@ -15,7 +15,7 @@ class Post extends React.Component {
   }
 
   render() {
-    const { user_id, body, id } = this.props
+    const { username, user_id, body, id } = this.props
     const { showForm } = this.state
     const post = { user_id, body, id }
     return(
@@ -28,11 +28,11 @@ class Post extends React.Component {
               <Card.Content>
                 <Card.Meta>
                   <span>
-                    {user_id}
+                    { username }
                   </span>
                 </Card.Meta>
                 <Card.Description>
-                  {body}
+                  { body }
                 </Card.Description>
                 <Button onClick={this.toggleForm}>
                   { showForm ? 'Cancel' : 'Edit' }

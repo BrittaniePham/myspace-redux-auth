@@ -7,6 +7,4 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   include DeviseTokenAuth::Concerns::User
 
-# SQL QUERY TO GET USERS?
-
 end

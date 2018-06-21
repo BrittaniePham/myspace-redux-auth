@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'; //connects store and dispatch to props??
-import { Container, Header, Card, Button } from 'semantic-ui-react';
+import { Container, Header, Card } from 'semantic-ui-react';
 import PostForm from './PostForm';
 import Post from './Post';
 
@@ -12,11 +12,11 @@ class Posts extends React.Component {
   }
 
   render() {
-    const { showForm } = this.state
+    // const { showForm } = this.state
     return (
       <Container>
         <Header as="h1" textAlign="center">Myspace</Header>
-        <PostForm/>
+        <PostForm />
           <Header as="h3" textAlign="center">Posts</Header>
             <Card.Group itemsPerRow={1}>
               {this.props.posts.map(post =>
