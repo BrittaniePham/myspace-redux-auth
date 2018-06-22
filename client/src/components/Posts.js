@@ -22,7 +22,6 @@ class Posts extends React.Component {
               {this.props.posts.map(post =>
               <Post key={post.id} {...post}/>)}
             </Card.Group>
-          }
       </Container>
     )
   }

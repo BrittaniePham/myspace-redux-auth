@@ -11,6 +11,7 @@ import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
 import FetchPosts from './FetchPosts';
 import styled from 'styled-components';
+import Users from './Users'
 
 const AppContainer = styled.div`
  background: linear-gradient(to bottom right, #fff0f8, #d7ecff);
@@ -25,7 +26,8 @@ class App extends Component {
         <FetchUser>
           <Switch>
             <ProtectedRoute exact path='/' component={Home} />
-            <Route path="/posts" component={FetchPosts} />
+            <ProtectedRoute path="/posts" component={FetchPosts} />
+            <Route path="/users" component={Users} />
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
             <Route component={NoMatch} />

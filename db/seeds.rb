@@ -1,5 +1,5 @@
-7.times do |i|
-  image = "#{SecureRandom.hex}"
+14.times do |i|
+  image = Faker::Avatar.image()
   name = Faker::HarryPotter.character
   email = "user#{SecureRandom.hex}@test.com"
   password = "password"

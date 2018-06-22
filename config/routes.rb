@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   namespace :api do
     resources :posts
+    resources :users
   end
 
   #Do not place any routes below this one
