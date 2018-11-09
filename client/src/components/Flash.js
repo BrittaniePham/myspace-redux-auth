@@ -25,7 +25,7 @@ class Flash extends Component {
   fadeFlash = dispatch => {
     setTimeout(() => {
       dispatch(clearFlash());
-    }, 15000);
+    }, 10000);
   }
 
   render() {

@@ -8,7 +8,7 @@ class Posts extends React.Component {
   state = { showForm: false }
 
   toggleForm = () => {
-      this.setState({ showForm: !this.state.showForm })
+    this.setState({ showForm: !this.state.showForm })
   }
 
   render() {

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { setHeaders } from './headers';
+import { setFlash } from './flash';
 const POSTS = 'POSTS'
 const ADD_POST = 'ADD_POST'
 const UPDATE_POST = 'UPDATE_POST'
@@ -25,6 +26,7 @@ export const addPost = (post) => {
         dispatch({ type: ADD_POST, post: res.data })
         const { headers } = res;
         dispatch(setHeaders(headers));
+        dispatch(setFlash('Post added successfully!', 'green'));
       })
   }
 }
@@ -36,6 +38,7 @@ export const updatePost = (post) => {
         dispatch({ type: UPDATE_POST, post: res.data })
         const { headers } = res;
         dispatch(setHeaders(headers));
+        dispatch(setFlash('Post updated successfully!', 'green'));
       })
   }
 }
@@ -47,6 +50,7 @@ export const deletePost = (id) => {
         dispatch({ type: DELETE_POST, id }) 
         const { headers } = res;
         dispatch(setHeaders(headers));
+        dispatch(setFlash('post deleted!', 'green'));
       })
   }
 }

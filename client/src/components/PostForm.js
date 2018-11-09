@@ -35,12 +35,12 @@ class PostForm extends React.Component {
   }
 
   render() {
-    const { body } = this.props
+    const { body } = this.state
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Input
           name="body"
-          defaultValue={body}
+          value={body}
           onChange={this.handleChange}
           label="post"
           required
